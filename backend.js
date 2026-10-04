@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
         storedTasks.forEach((task)=> tasks.push(task));
         updateTasksList();
         updateStats();
+        updateUpcomingTasks();
         saveTasks();
     }
 })
@@ -32,6 +33,7 @@ const addTask = () => {
 
         updateTasksList();
         updateStats();
+        updateUpcomingTasks();
         saveTasks();
 
         taskInput.value = '';
@@ -43,6 +45,7 @@ const toggleTaskComplete = (index) =>{
     tasks[index].completed = !tasks[index].completed;
     updateTasksList();
     updateStats();
+    updateUpcomingTasks();
     saveTasks();
 }
 
@@ -50,6 +53,7 @@ const deleteTask = (index) =>{
     tasks.splice(index, 1);
     updateTasksList();
     updateStats();
+    updateUpcomingTasks();
     saveTasks();
 }
 
@@ -60,6 +64,7 @@ const editTask = (index) => {
     tasks.splice(index, 1);
     updateTasksList();
     updateStats();
+    updateUpcomingTasks();
     saveTasks();
 }
 
@@ -151,4 +156,5 @@ const confettiBlast = ()=>{
 
 updateTasksList();
 updateStats();
+updateUpcomingTasks();
 saveTasks();
