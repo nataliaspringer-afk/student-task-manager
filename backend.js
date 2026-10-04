@@ -17,11 +17,15 @@ const saveTasks = ()=>{
 
 const addTask = () => {
     const taskInput = document.getElementById('taskInput');
+    const dateInput = document.getElementById('dueDate');
+    
     const text = taskInput.value.trim();
+    const dueDate = dateInput.value();
 
-    if (text) {
+    if (text && dueDate) {
         tasks.push({
             text: text,
+            dueDate: dueDate,
             completed: false
         });
 
@@ -30,6 +34,7 @@ const addTask = () => {
         saveTasks();
 
         taskInput.value = '';
+        dateInput.value = '';
     }
 };
 
