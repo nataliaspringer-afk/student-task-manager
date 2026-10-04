@@ -3,42 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ontario Tech Checklist App</title>
+    <title>StudyFlow</title>
     <link rel="stylesheet" href="./styling.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="upcoming-container>
-        <h2> Upcoming Tasks </h2>
-        <ul id="upcoming-tasks"></ul>
-    </div>
-    <div class="container">
-        <div class="stats-container">
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">✓</div>
+            <div>
+                <h1>TaskManager</h1>
+                <p><i>Stay on top of your coursework.</i></p>
+            </div>
+        </div>
+
+        <button id="themeToggle" class="theme-button" type="button">🌙</button>
+    </header>
+
+    <main class="container">
+
+        <section class="stats-container">
             <div class="details">
-                <h1>To-Do List App</h1>
-                <p id="sidenote">Keep track of your tasks!</p>
+                <div class="section-label">YOUR PROGRESS</div>
+
+                <h2 id="progress-message">Keep going! 💪</h2>
+
+                <p id="progress-text">0 of 0 tasks completed</p>
+
                 <div id="progress-bar">
                     <div id="progress"></div>
                 </div>
             </div>
+
             <div class="stats-numbers">
-                <p id="numbers">0</p>
+                <p id="numbers">0 / 0</p>
             </div>
-        </div>
+        </section>
 
-        <form action="" id="taskform">
-            <input id="taskInput" type="text" placeholder="What do you need to do?">
-            <input id="dueDate" type="date"> 
-            <button id="newTask" type="submit">+</button>
-        </form>
+        <section class="today-card">
+            <div>
+                <span class="section-label">TODAY</span>
+                <h2 id="today-date"></h2>
+            </div>
 
-        <ul id="task-list"></ul>
-    </div>
+            <div class="today-count">
+                <strong id="today-count">0</strong>
+                <span>due today</span>
+            </div>
+        </section>
+
+        <section class="add-task-section">
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">NEW TASK</span>
+                    <h2>Add something to your list</h2>
+                </div>
+            </div>
+
+            <form id="taskform">
+                <input
+                    id="taskInput"
+                    type="text"
+                    placeholder="What do you need to do?"
+                    required
+                >
+
+                <input
+                    id="dueDate"
+                    type="date"
+                    required
+                >
+
+                <select id="category">
+                    <option value="School">School</option>
+                    <option value="ELEE2110">ELEE2110 <i>(Discrete Math)</i></option>
+                    <option value="SOFE2850">SOFE2850 <i>(Nat. Foundations)</i></option>
+                    <option value="ELEE2200">ELEE2200 <i>(Elect. Eng. Fundamentals)</i></option>
+                    <option value="SOFE2710">SOFE2710 <i>(OOP)</i></option>
+                    <option value="SOFE2800">SOFE2800 <i>(Web Programming)</i></option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <button id="newTask" type="submit">+</button>
+            </form>
+        </section>
+
+        <section class="upcoming-section">
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">UPCOMING</span>
+                    <h2>What's next?</h2>
+                </div>
+            </div>
+
+            <ul id="upcoming-tasks"></ul>
+        </section>
+
+        <section class="tasks-section">
+            <div class="section-heading">
+                <div>
+                    <span class="section-label">YOUR TASKS</span>
+                    <h2>All tasks</h2>
+                </div>
+            </div>
+
+            <ul id="task-list"></ul>
+        </section>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@4.4.0/tsparticles.confetti.bundle.min.js"></script>
     <script src="./backend.js"></script>
-    <script
-            src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@4.4.0/tsparticles.confetti.bundle.min.js"></script>
 
 </body>
 </html>
