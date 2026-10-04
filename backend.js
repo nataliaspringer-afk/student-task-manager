@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
         storedTasks.forEach((task)=> tasks.push(task));
         updateTasksList();
         updateStats();
+        saveTasks();
     }
 })
 
@@ -116,6 +117,26 @@ document.getElementById('newTask').addEventListener('click', function(e) {
     addTask();
 });
 
+const updateUpcomingTasks = () =>{
+    const upcomingList = document.getElementById('upcoming-tasks');
+    upcomingList.innerHTML = '';
+
+    const upcomingTasks = tasks.filter(task => !task.completed && task.dueDate);
+    upcomingTasks = tasks.sort((a,b) => new Date(a.dueDate) - new Date(b.dueDate));
+    upcomingTasks = tasks.slice(0,3);
+
+    upcomingTasks.forEach(task => {
+        const item = document.createElement('li');
+        const date = new Date(task.dueDate + 'T00:00:00');
+        item.innerHTML = `
+            <div class="upcoming-task">
+                <strong>${task.text}</strong>
+                <span>${date.toLocalDateString()}</span>
+            </div>
+   `;
+        upcomingList.appendChild(item);
+    })
+}
 const confettiBlast = ()=>{
     function randomInRange(min, max) {
     return Math.random() * (max - min) + min;
