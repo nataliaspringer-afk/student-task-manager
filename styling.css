@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #E3E8DF;
+    --secondaryBackground: #F6F7F1;
+    --text: #17231A;
+    --outline: #718071;
+    --progbar: #607A61;
+    --accent: #9BAF91;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal
+
+}
+
+#sideNote {
+    color: var(--text);
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 120px auto 0 auto;
+    max-width: 500px;
+}
+
+.stats-container {
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid var(--outline); /* outline */
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+
+}
+
+.details {
+    width: 100%;
+
+}
+
+#numbers {
+    width: 100px;
+    height: 100px;
+    background-color: var(--secondaryBackground); /* outline */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border-width: thin;
+    border-color: var(--outline);
+    font-size: 30px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--secondaryBackground);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#progress {
+    width: 0%;
+    height: 10px;
+    background-color: var(--progbar); /* progbar */
+    border-radius: 10px;
+    transition: all 0.5s ease;
+}
+
+form {
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    gap: 15px;
+
+
+}
+input{
+    flex: 1;
+    padding: 15px;
+    background-color: var(--secondaryBackground);
+    border: 1px solid var(--outline); /* outline */
+    border-radius: 10px;
+    outline: none;
+    color: var(--text);
+
+}
+
+button {
+    padding: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondaryBackground); /* outline */
+    color: var(--text);
+    font-size: 30px;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+}
+
+#task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    width: 100%;
+    list-style-type: none;
+
+}
+
+.task{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+}
+
+.task input {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.taskItem {
+    display: flex;
+    background-color: var(--secondaryBackground);
+    padding: 10px;   
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskItem img {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.task.completed {
+    text-decoration: line-through;
+    color: var(--progbar); /* progbar */
+}
