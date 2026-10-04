@@ -28,6 +28,33 @@ const getDaysRemaining = (dueDate) => {
 
 } // end method
 
+const getDateStatus = (dueDate) => {
+    const daysLeft = getDaysRemaining(dueDate);
+
+    if (daysLeft < 0){
+        return {
+            text: `Overdue by ${Math.abs(daysLeft)} day ${Math.abs(daysLeft) === 1 ? '' : 's'}`,
+            className: 'overdue'
+        };
+    }
+    if (daysLeft === 0){
+        return {
+            text: 'Due today',
+            className: 'today'
+        };
+    }
+    if (daysLeft === 1){
+        return {
+            text: 'Due tomorrow',
+            className: 'today'
+        };
+    }
+        return {
+            text: `${dueDate} days left`,
+            className: 'upcoming'
+        };
+}
+
 const addTask = () => {
     const taskInput = document.getElementById('taskInput');
     const dateInput = document.getElementById('dueDate');
