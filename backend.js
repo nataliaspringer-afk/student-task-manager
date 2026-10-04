@@ -99,19 +99,28 @@ const deleteTask = (index) =>{
     updateTasksList();
     updateStats();
     updateUpcomingTasks();
+    updateToday();
     saveTasks();
-}
+};
 
 const editTask = (index) => {
     const taskInput = document.getElementById('taskInput');
+    const dateInput = document.getElementById('dueDate');
+    const categoryInput = document.getElementById('category');
+
     taskInput.value = tasks[index].text;
+    dateInput.value = tasks[index].dueDate;
+    categoryInput.value = tasks[index].category || 'School';
+    
 
     tasks.splice(index, 1);
     updateTasksList();
     updateStats();
     updateUpcomingTasks();
     saveTasks();
-}
+
+    taskInput.focus(); // allowing input actions from user
+};
 
 const updateStats = ()=> {
     const completedTasks = tasks.filter(task => task.completed).length;
