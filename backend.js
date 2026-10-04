@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
         updateTasksList();
         updateStats();
         updateUpcomingTasks();
-        saveTasks();
     }
 })
 
@@ -16,6 +15,18 @@ let tasks = [];
 const saveTasks = ()=>{
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
+const getDaysRemaining = (dueDate) => {
+    const today = new Date();
+    const due = new Date('T00:00:00');
+
+    today.setHours(0,0,0,0);
+
+    const dateDiff = due - today;
+
+    return Math.ceil(difference/(1000 * 60 * 60 * 24));
+
+} // end method
 
 const addTask = () => {
     const taskInput = document.getElementById('taskInput');
