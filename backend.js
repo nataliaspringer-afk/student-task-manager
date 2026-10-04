@@ -58,9 +58,11 @@ const getDateStatus = (dueDate) => {
 const addTask = () => {
     const taskInput = document.getElementById('taskInput');
     const dateInput = document.getElementById('dueDate');
+    const categoryInput = document.getElementById('category');
     
     const text = taskInput.value.trim();
-    const dueDate = dateInput.value();
+    const dueDate = dateInput.value;
+    const category = categoryInput.value;
 
     if (text && dueDate) {
         tasks.push({
@@ -69,13 +71,17 @@ const addTask = () => {
             completed: false
         });
 
+        tasks.sort((a,b) => new Date(a.dueDate) - newDate(b.dueDate));
+
         updateTasksList();
         updateStats();
         updateUpcomingTasks();
+        updateToday();
         saveTasks();
 
         taskInput.value = '';
         dateInput.value = '';
+        categoryInput.value = 'School'; // default category of task
     }
 };
 
@@ -84,6 +90,7 @@ const toggleTaskComplete = (index) =>{
     updateTasksList();
     updateStats();
     updateUpcomingTasks();
+    updateToday();
     saveTasks();
 }
 
